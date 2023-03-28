@@ -9,12 +9,16 @@ $(document).ready(function() {
                 if (user.email == email && user.password == password) {
                     found = true;
                     $('#response').html('<div class="alert alert-success" role="alert">Sign in successful!</div>');
+                    window.location.href = 'op.html'; // redirect to "op.html" page
                     return false;
                 }
             });
             if (!found) {
                 $('#response').html('<div class="alert alert-danger" role="alert">Incorrect email or password.</div>');
             }
+        })
+        .fail(function() {
+            alert("Error loading JSON file.");
         });
     });
 });
